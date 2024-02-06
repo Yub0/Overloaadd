@@ -1,0 +1,22 @@
+{
+    "transmission": {
+        "host": "",
+        "port": 0,
+        "username": "",
+        "password": ""
+    },
+    "nginx": {
+        "host": ""
+    },
+    "overseerr": {
+        "host": "",
+        "api_key": ""
+    },
+    "xthor": {
+        "api_key": ""
+    },
+    "juicefs_movie": {
+        "database": "",
+        "bucket": ""
+    }
+}
