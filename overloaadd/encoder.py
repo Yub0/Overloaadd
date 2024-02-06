@@ -7,7 +7,7 @@ from tinydb import Query
 from tinydb.table import Table
 
 # First Party
-from overloaadd import db, transmission, configuration
+from overloaadd import configuration, db, transmission
 from overloaadd.dataclasses import Torrent
 from overloaadd.helpers import (
     clean_medias,
@@ -70,7 +70,10 @@ def process(logger: logger, torrents: Table, torrent: dict) -> None:
         shutil.move(
             os.path.join(os.getcwd(), "medias", output_file_name),
             os.path.join(
-                os.getcwd(), "juicefs", configuration.juicefs_movie.bucket, output_file_name
+                os.getcwd(),
+                "juicefs",
+                configuration.juicefs_movie.bucket,
+                output_file_name,
             ),
         )
 
@@ -91,7 +94,9 @@ def entrypoint() -> None:
     mount_juicefs(
         logger,
         configuration.juicefs_movie.database,
-        os.path.join(os.getcwd(), "juicefs", configuration.juicefs_movie.bucket),
+        os.path.join(
+            os.getcwd(), "juicefs", configuration.juicefs_movie.bucket
+        ),
         configuration.juicefs_movie.bucket,
     )
 

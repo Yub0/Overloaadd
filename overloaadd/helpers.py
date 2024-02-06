@@ -2,13 +2,14 @@
 import os
 import shutil
 import subprocess
-from pydantic import ValidationError
 
 # Third Party
 import requests
 from loguru import logger
+from pydantic import ValidationError
 from videoprops import get_video_properties
 
+# First Party
 from overloaadd.dataclasses import IrilisConfiguration
 
 
@@ -19,7 +20,7 @@ def load_configuration(logger: logger) -> IrilisConfiguration:
     except FileNotFoundError as exc:
         logger.error(f"The configuration file is missing: {exc}")
         exit(1)
-    
+
     try:
         configuration = IrilisConfiguration.model_validate_json(config)
         logger.info("Configuration loaded successfully.")
